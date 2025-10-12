@@ -479,7 +479,7 @@ def main(folder_path, similarity_threshold=0.25, n_clusters=None, multilingual=T
     print("\n✓ Mehrsprachige Analyse abgeschlossen!")
 
 if __name__ == "__main__":
-    pdf_folder = r"C:\Users\sebas\Nextcloud\Familienordner\Bücher\Naturwissenschaften"
+    pdf_folder = r"..."         # replace ... with your directory
     
     if os.path.exists(pdf_folder):
         main(
@@ -496,4 +496,5 @@ if __name__ == "__main__":
         print("Das Skript unterstützt deutsche und englische Dokumente gemischt!")
         print("\nParameter-Tuning:")
         print("  repulsion_strength: 1.0 (schwach) - 5.0 (sehr stark)")
+
         print("  spring_k: 3.0 (kompakt) - 15.0 (sehr weit verteilt)")
