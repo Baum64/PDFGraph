@@ -37,16 +37,6 @@ langdetect
 
 ## Verwendung
 
-### Basis-Beispiel
-
-```python
-python PDFGraph.py
-```
-
-Die Standardeinstellung verwendet den Ordner:
-```
-C:\Users\sebas\Nextcloud\Familienordner\Bücher\Naturwissenschaften
-```
 
 ### Mit benutzerdefinierten Parametern
 
@@ -103,30 +93,6 @@ Das Programm erzeugt:
 - **Kanten blau** → Mittlere Ähnlichkeit (>0.5)
 - **Kanten grau** → Schwache Ähnlichkeit (>0.3)
 
-## Unterstützte Sprachen
-
-- 🇩🇪 Deutsch
-- 🇬🇧 Englisch
-- 🇫🇷 Französisch
-- 🇪🇸 Spanisch
-- 🇮🇹 Italienisch
-
-Mehrsprachige Dokumentsammlungen werden automatisch erkannt und verarbeitet.
-
-## Beispiel-Workflow
-
-```bash
-# 1. PDFs in einen Ordner kopieren
-mkdir ./meine_pdfs
-cp *.pdf ./meine_pdfs/
-
-# 2. PDFGraph ausführen
-python PDFGraph.py
-
-# 3. Generierte HTML-Datei öffnen
-network_interactive.html
-```
-
 ## Fehlerbehebung
 
 **"Keine PDFs gefunden"**
@@ -143,15 +109,6 @@ network_interactive.html
 - ~5-10 Sekunden für 10-20 PDFs
 - ~30 Sekunden für 50+ PDFs
 - Abhängig von Textmenge und CPU
-
-## Lizenz
-
-Frei verwendbar für private und kommerzielle Projekte.
-
-## Kontakt / Support
-
-Bei Fragen oder Problemen: Code prüfen und Fehlerausgaben analysieren.
-
 ---
 
 **Version:** 1.0 | **Autor:** Sebastian Meyer | **Datum:** Oktober 2025
