@@ -1,30 +1,30 @@
-# PDFGraph - Mehrsprachige PDF-Netzwerk-Analyse
+# PDFGraph - Multilingual PDF Network Analysis
 
-Ein Python-Tool zur semantischen Analyse und interaktiven Visualisierung von PDF-Dokumentsammlungen.
+A Python tool for semantic analysis and interactive visualization of PDF document collections.
 
 ## Features
 
-- ✅ Automatische Textextraktion aus PDFs
-- ✅ Mehrsprachige Spracherkennung (Deutsch, Englisch, Französisch, Spanisch, Italienisch)
-- ✅ Semantische Ähnlichkeitsberechnung (TF-IDF + Cosinus-Ähnlichkeit)
-- ✅ Automatisches Dokumenten-Clustering
-- ✅ Interaktive HTML-Netzwerk-Visualisierung
-- ✅ Doppelklick zum Öffnen von PDFs
-- ✅ Detaillierte Cluster-Analyse
+- ✅ Automatic text extraction from PDFs
+- ✅ Multilingual language detection (German, English, French, Spanish, Italian)
+- ✅ Semantic similarity calculation (TF-IDF + Cosine similarity)
+- ✅ Automatic document clustering
+- ✅ Interactive HTML network visualization
+- ✅ Double-click to open PDFs
+- ✅ Detailed cluster analysis
 
 ## Installation
 
-### Voraussetzungen
+### Requirements
 - Python 3.7+
 - pip
 
-### Dependencies installieren
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**requirements.txt Inhalt:**
+**requirements.txt Content:**
 ```
 PyPDF2
 networkx
@@ -35,80 +35,102 @@ pyvis
 langdetect
 ```
 
-## Verwendung
-
-
-### Mit benutzerdefinierten Parametern
+## Usage With Custom Parameters
 
 ```python
 from PDFGraph import main
 
 main(
-    folder_path="./meine_pdfs",
-    similarity_threshold=0.25,      # Verbindungsstärke (0.0-1.0)
-    n_clusters=3,                    # Anzahl der Cluster
-    multilingual=True,               # Mehrsprachig aktivieren
-    repulsion_strength=2.5,          # Knoten-Abstoßung (1.0-5.0)
-    spring_k=10.0                    # Gesamtabstand (3.0-15.0)
+    folder_path="./my_pdfs",
+    similarity_threshold=0.25,      # Connection strength (0.0-1.0)
+    n_clusters=3,                    # Number of clusters
+    multilingual=True,               # Enable multilingual processing
+    repulsion_strength=2.5,          # Node repulsion (1.0-5.0)
+    spring_k=10.0                    # Overall distance (3.0-15.0)
 )
 ```
 
 ## Output
 
-Das Programm erzeugt:
-- **network_interactive.html** - Interaktive Netzwerk-Visualisierung
-- **Konsolen-Output** - Sprachverteilung, Cluster-Analyse, Ähnlichkeitswerte
+The program generates:
+- **network_interactive.html** - Interactive network visualization
+- **Console output** - Language distribution, cluster analysis, similarity values
 
-## Bedienung der HTML-Visualisierung
+## HTML Visualization Controls
 
-| Aktion | Beschreibung |
+| Action | Description |
 |--------|-------------|
-| **Doppelklick** | Öffnet die PDF-Datei |
-| **Drag & Drop** | Knoten verschieben |
-| **Zoom** | Mausrad zum Zoomen |
-| **Hover** | Zeigt Ähnlichkeitswert an |
-| **Multiselect** | Mehrere Knoten auswählen |
+| **Double-click** | Opens the PDF file |
+| **Drag & Drop** | Move nodes around |
+| **Scroll** | Zoom in/out |
+| **Hover** | Shows similarity value |
+| **Multi-select** | Select multiple nodes |
 
-## Parameter-Tuning
+## Parameter Tuning
 
 ### repulsion_strength (1.0 - 5.0)
-- Steuert die Abstoßung schwacher Verbindungen
-- Niedrig (1.0): Kompakte Darstellung
-- Hoch (5.0): Starke Streuung
+- Controls repulsion of weak connections
+- Low (1.0): Compact layout
+- High (5.0): Strong dispersion
 
 ### spring_k (3.0 - 15.0)
-- Abstand zwischen allen Knoten
-- Niedrig (3.0): Kompaktes Netzwerk
-- Hoch (15.0): Weitläufige Verteilung
+- Distance between all nodes
+- Low (3.0): Compact network
+- High (15.0): Widespread distribution
 
 ### similarity_threshold (0.0 - 1.0)
-- Minimale Ähnlichkeit für Verbindungen
-- Niedrig (0.1): Viele Verbindungen
-- Hoch (0.5): Nur starke Verbindungen
+- Minimum similarity for connections
+- Low (0.1): Many connections
+- High (0.5): Only strong connections
 
-## Farbcodierung
+## Color Coding
 
-- **Cluster** → Verschiedene Knotenfarben
-- **Kanten grün** → Hohe Ähnlichkeit (>0.7)
-- **Kanten blau** → Mittlere Ähnlichkeit (>0.5)
-- **Kanten grau** → Schwache Ähnlichkeit (>0.3)
+- **Clusters** → Different node colors
+- **Green edges** → High similarity (>0.7)
+- **Blue edges** → Medium similarity (>0.5)
+- **Gray edges** → Low similarity (>0.3)
 
-## Fehlerbehebung
+## Supported Languages
 
-**"Keine PDFs gefunden"**
-→ Stelle sicher, dass der PDF-Ordner existiert und .pdf-Dateien enthält
+- 🇩🇪 German
+- 🇬🇧 English
+- 🇫🇷 French
+- 🇪🇸 Spanish
+- 🇮🇹 Italian
 
-**"pyvis nicht installiert"**
-→ Führe aus: `pip install pyvis`
+Multilingual document collections are automatically detected and processed.
 
-**"Kein Text extrahiert"**
-→ Die PDF könnte gescannt/bilderbasiert sein (OCR erforderlich)
+## Example Workflow
+
+```bash
+# 1. Copy PDFs to a folder
+mkdir ./my_pdfs
+cp *.pdf ./my_pdfs/
+
+# 2. Run PDFGraph
+python PDFGraph.py
+
+# 3. Open the generated HTML file
+network_interactive.html
+```
+
+## Troubleshooting
+
+**"No PDFs found"**
+→ Make sure the PDF folder exists and contains .pdf files
+
+**"pyvis not installed"**
+→ Run: `pip install pyvis`
+
+**"No text extracted"**
+→ The PDF might be scanned/image-based (OCR required)
 
 ## Performance
 
-- ~5-10 Sekunden für 10-20 PDFs
-- ~30 Sekunden für 50+ PDFs
-- Abhängig von Textmenge und CPU
+- ~5-10 seconds for 10-20 PDFs
+- ~30 seconds for 50+ PDFs
+- Depends on text volume and CPU
+
 ---
 
-**Version:** 1.0 | **Autor:** Sebastian Meyer | **Datum:** Oktober 2025
+**Version:** 1.0 | **Author:** Sebastian Meyer | **Date:** October 2025
