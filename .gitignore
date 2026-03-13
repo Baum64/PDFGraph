@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Ausgabedateien des Skripts
+*.html
+network_interactive.html
+
+# PDF-Eingabedateien nicht einchecken (oft groß / vertraulich)
+*.pdf
+
+# macOS / Windows
+.DS_Store
+Thumbs.db

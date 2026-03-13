@@ -479,7 +479,7 @@ def main(folder_path, similarity_threshold=0.25, n_clusters=None, multilingual=T
     print("\n✓ Mehrsprachige Analyse abgeschlossen!")
 
 if __name__ == "__main__":
-    pdf_folder = r"..."         # replace ... with your directory
+    pdf_folder = r"/home/sebastian/Nextcloud/Familienordner/Bücher/IT/"         # replace ... with your directory
     
     if os.path.exists(pdf_folder):
         main(
